@@ -1,0 +1,372 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #dbeafe 0%, #f8fafc 45%, #f1f5f9 100%);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.shell {
+  width: min(1100px, 100%);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  border-radius: 32px;
+  box-shadow: 0 35px 60px -35px rgba(15, 23, 42, 0.4);
+  padding: 3rem;
+  display: grid;
+  gap: 3rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #334155;
+  max-width: 60ch;
+}
+
+h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.form-panel {
+  display: grid;
+  gap: 2rem;
+}
+
+.input-grid {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.input-row {
+  display: grid;
+  gap: 1.3rem;
+}
+
+@media (min-width: 720px) {
+  .input-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+label {
+  display: grid;
+  gap: 0.55rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+label span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  background: rgba(248, 250, 252, 0.95);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  color: #0f172a;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.primary-button {
+  align-self: start;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.7rem;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 35px -20px rgba(37, 99, 235, 0.65);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.results-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.results-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (min-width: 860px) {
+  .results-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.result-card {
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 22px;
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.45);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.result-rank {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.confidence {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.confidence-high {
+  background: rgba(34, 197, 94, 0.16);
+  color: #16a34a;
+}
+
+.confidence-medium {
+  background: rgba(234, 179, 8, 0.16);
+  color: #ca8a04;
+}
+
+.confidence-low {
+  background: rgba(248, 113, 113, 0.16);
+  color: #f97316;
+}
+
+.result-address {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.result-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.result-rationales {
+  list-style: disc inside;
+  display: grid;
+  gap: 0.35rem;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.copy-button {
+  justify-self: start;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  border-radius: 999px;
+  padding: 0.45rem 1.2rem;
+  background: white;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+  background: rgba(37, 99, 235, 0.1);
+  transform: translateY(-1px);
+}
+
+.callouts {
+  background: rgba(15, 23, 42, 0.86);
+  color: white;
+  border-radius: 22px;
+  padding: 1.8rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.callouts h2 {
+  font-size: 1.35rem;
+}
+
+.callout-list {
+  display: grid;
+  gap: 0.75rem;
+  font-size: 0.98rem;
+}
+
+.callout-list li {
+  list-style: none;
+  padding-left: 1.8rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.callout-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0.4rem;
+  color: rgba(248, 250, 252, 0.75);
+}
+
+.secondary-panel {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.secondary-panel section {
+  background: rgba(248, 250, 252, 0.92);
+  border-radius: 20px;
+  padding: 1.6rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 16px 38px -30px rgba(15, 23, 42, 0.52);
+}
+
+.secondary-panel h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #0f172a;
+}
+
+.secondary-panel ul {
+  display: grid;
+  gap: 0.7rem;
+  color: #334155;
+  font-size: 0.95rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.secondary-panel li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.secondary-panel li::before {
+  content: "∙";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+}
+
+.status-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.status-bar .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+  position: relative;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.empty-state {
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 18px;
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  padding: 1.8rem;
+  color: #475569;
+  font-size: 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.empty-state strong {
+  color: #1e293b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
